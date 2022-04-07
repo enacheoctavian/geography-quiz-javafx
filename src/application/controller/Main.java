@@ -9,11 +9,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("welcome-page.fxml"));
-        primaryStage.setTitle("Geography Quiz");
-        primaryStage.setScene(new Scene(root, 400, 500));
-        primaryStage.show();
+        stage.setTitle("Geography Quiz");
+        Scene scene = new Scene(root, 400, 500);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

@@ -1,3 +1,17 @@
-#button{
-    background-color:red;
+.button{
+    -fx-background-color: #edc531;
+    -fx-background-radius: 15px;
+
+
+}
+#anchor{
+    -fx-background-image: url(https://geography.as.miami.edu/_assets/images/demo/s_earth_1250x507.jpg);
+    -fx-border-color: #edc531;
+     -fx-border-width: 20px 5px 5px 5px;
+
+}
+#mainText{
+-fx-background-color: #ede0d4;
+-fx-background-radius: 15px;
+
 }
