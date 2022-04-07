@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="129.0" layoutY="185.0" mnemonicParsing="false" text="EUROPE" textFill="#00296b">
+         <font>
+            <Font name="Onyx" size="43.0" />
+         </font>
+      </Button>
+      <Button layoutX="131.0" layoutY="287.0" mnemonicParsing="false" text="GLOBAL" textFill="#00296b">
+         <font>
+            <Font name="Onyx" size="43.0" />
+         </font>
+      </Button>
+      <Label layoutX="65.0" layoutY="74.0" text="SELECT REGION" textFill="#edc531">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="45.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
