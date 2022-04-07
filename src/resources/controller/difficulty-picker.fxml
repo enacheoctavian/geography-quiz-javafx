@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text id="mainText" fx:id="mainTitle" fill="#edc531db" layoutX="48.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="button" text="GEOGRAPHY QUIZ">
+         <font>
+            <Font name="Onyx" size="72.0" />
+         </font>
+      </Text>
+      <Pane layoutX="100.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #edc531; -fx-background-radius: 15; -fx-opacity: 0.9;">
+         <children>
+            <Label layoutX="16.0" layoutY="14.0" text="Create an account" textFill="#00296b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="65.0" layoutY="159.0" mnemonicParsing="false" style="-fx-background-color: #00296b;" text="SIGN UP" textFill="#edc531">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label layoutX="6.0" layoutY="66.0" text="USER:" textFill="#00296b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="91.0" text="PASSWORD:" textFill="#00296b">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="43.0" layoutY="63.0" prefHeight="25.0" prefWidth="144.0" />
+            <TextField layoutX="77.0" layoutY="88.0" prefHeight="25.0" prefWidth="110.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
