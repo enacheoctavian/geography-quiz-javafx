@@ -5,6 +5,15 @@ public class User {
     private String username;
     private String password;
     private String userId;
+    private int bestScore;
+
+    public int getBestScore() {
+        return bestScore;
+    }
+
+    public void setBestScore(int bestScore) {
+        this.bestScore = bestScore;
+    }
 
     public User(String username, String password) {
         this.username = username;
