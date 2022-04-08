@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #00296b; -fx-border-width: 2px; -fx-border-color: #edc531;" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text id="mainText" fx:id="mainTitle" fill="#edc531db" layoutX="221.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="button" text="GEOGRAPHY QUIZ" wrappingWidth="357.9921875">
+         <font>
+            <Font name="Onyx" size="80.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="185.0" fitWidth="160.0" layoutX="14.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/glob.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="260.0" fitWidth="258.0" layoutX="542.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/padure.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="71.0" layoutY="99.0" prefHeight="76.0" prefWidth="658.0" text="Name the capital of Romania:" textAlignment="CENTER" textFill="#edc531">
+         <font>
+            <Font name="Impact" size="26.0" />
+         </font>
+      </Label>
+      <Button id="quizButton" layoutX="76.0" layoutY="189.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" layoutX="76.0" layoutY="257.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" layoutX="433.0" layoutY="257.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" layoutX="433.0" layoutY="189.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="649.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/aripa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

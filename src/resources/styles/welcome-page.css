@@ -15,3 +15,6 @@
 -fx-background-radius: 15px;
 
 }
+#quizButton{
+-fx-text-fill: #00296b;
+}
