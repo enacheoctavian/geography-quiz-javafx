@@ -1,5 +1,6 @@
 package model;
 
+//model for every user stored in the database
 public class User {
     private String username;
     private String password;

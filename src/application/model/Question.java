@@ -2,7 +2,7 @@ package model;
 
 //model for every question
 
-public class question {
+public class Question {
     private String question;
     private String ans1;
     private String ans2;
