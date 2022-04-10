@@ -8,6 +8,25 @@ public class Question {
     private String ans2;
     private String ans3;
     private String ans4;
+    private int dif;
+    private int region;
+
+    public int getDif() {
+        return dif;
+    }
+
+    public void setDif(int dif) {
+        this.dif = dif;
+    }
+
+    public int getRegion() {
+        return region;
+    }
+
+    public void setRegion(int region) {
+        this.region = region;
+    }
+
     private int correctAns;
 
     public void setQuestion(String question) {
