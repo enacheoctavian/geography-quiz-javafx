@@ -13,17 +13,25 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 
+import static javafx.fxml.FXMLLoader.load;
+
 public class Utility {
 
     public static String name;
     public static String bestScore;
+    public static String top1="";
+    public static String top2="";
+    public static String top3="";
+    public static int scor1=1;
+    public static int scor2=1;
+    public static int scor3=1;
 
 
     public static void switchMyScene(ActionEvent event, String fxmlFile) throws IOException {
         Stage stage;
         Scene scene;
         Parent root;
-        root = FXMLLoader.load(Utility.class.getResource(fxmlFile));
+        root = load(Utility.class.getResource(fxmlFile));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -54,6 +62,7 @@ public class Utility {
                 psInsert.executeUpdate();
                 System.out.println("Sign-Up completed");
                 name = username;
+
                 switchMyScene(event, "logged-in-page.fxml");
             }
         } catch (SQLException | IOException e) {
@@ -107,7 +116,7 @@ public class Utility {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(password)) {
-                        name=username;
+                        name = username;
                         switchMyScene(event, "logged-in-page.fxml");
                     } else {
                         System.out.println("Passwords did not match!");
@@ -147,5 +156,44 @@ public class Utility {
 
     }
 
+
+    public static void getTop(ActionEvent event) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
+            preparedStatement = connection.prepareStatement("SELECT userName,bestScore FROM users ORDER BY bestScore;");
+            resultSet = preparedStatement.executeQuery();
+            int i = 0;
+            while (resultSet.next()) {
+                    i++;
+                    String retrievedName = resultSet.getString("userName");
+                    int retrievedScore = resultSet.getInt("bestScore");
+                    if (i == 1) {
+                        scor1 = retrievedScore;
+                        top1 = retrievedName;
+
+                    } else if (i == 2) {
+                        scor2 = retrievedScore;
+                        top2 = retrievedName;
+
+                    } else {
+                        scor3 = retrievedScore;
+                        top3 = retrievedName;
+
+                    }
+
+                    if(i==3)
+                        break;
+
+            }
+
+            switchMyScene(event, "top-page.fxml");
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

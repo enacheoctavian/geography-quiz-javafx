@@ -24,7 +24,7 @@ public class LoggedIn implements Initializable {
 
     }
     public void onPressTopScores(ActionEvent event) throws IOException {
-        Utility.switchMyScene(event,"region-selector.fxml");
+        Utility.getTop(event);
 
     }
 

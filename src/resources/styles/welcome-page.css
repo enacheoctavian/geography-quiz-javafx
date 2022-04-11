@@ -18,3 +18,12 @@
 #quizButton{
 -fx-text-fill: #00296b;
 }
+
+#topPiece{
+-fx-background-color: #edc531;
+}
+
+#paneTop{
+-fx-background-radius: 15px;
+-fx-background-color: RGBA(0,86,209,0.6);
+}
