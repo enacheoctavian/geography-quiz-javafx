@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegionSelector">
    <children>
       <Button layoutX="129.0" layoutY="185.0" mnemonicParsing="false" text="EUROPE" textFill="#00296b">
          <font>
@@ -23,5 +22,6 @@
             <Font name="Franklin Gothic Demi Cond" size="45.0" />
          </font>
       </Label>
+      <Button layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#onPressBack" text="Back" />
    </children>
 </AnchorPane>

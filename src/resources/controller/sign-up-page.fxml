@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUp">
    <children>
       <Text id="mainText" fx:id="mainTitle" fill="#edc531db" layoutX="48.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="button" text="GEOGRAPHY QUIZ">
          <font>
@@ -42,5 +41,6 @@
             <TextField layoutX="77.0" layoutY="88.0" prefHeight="25.0" prefWidth="110.0" />
          </children>
       </Pane>
+      <Button layoutX="22.0" layoutY="450.0" mnemonicParsing="false" onAction="#onPressBack" text="Back" />
    </children>
 </AnchorPane>

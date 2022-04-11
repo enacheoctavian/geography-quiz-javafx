@@ -7,13 +7,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Loginpage {
-    public void onPressBack(ActionEvent event) throws IOException {
-        Utility.switchMyScene(event,"welcome-page.fxml");
-
-    }
-
     @FXML
     private Label loginErrorMessage;
     @FXML
@@ -21,12 +17,16 @@ public class Loginpage {
     @FXML
     private PasswordField passwordField;
 
-    public void loginButtonOnAction(ActionEvent e){
+    public void loginButtonOnAction(ActionEvent e) throws SQLException {
 
-        if(usernameTextField.getText().isBlank() == false && passwordField.getText().isBlank()==false) {
-            loginErrorMessage.setText("Wrong credentials, try again!");
-        }else{
-            loginErrorMessage.setText("Please enter credentials");
-        }
+        Utility.logInUser(e,usernameTextField.getText(),passwordField.getText(),loginErrorMessage);
+    }
+
+    public void singUpButtonOnAction(ActionEvent e) throws IOException {
+        Utility.switchMyScene(e,"sign-up-page.fxml");
+    }
+    public void onPressBack(ActionEvent event) throws IOException {
+        Utility.switchMyScene(event,"welcome-page.fxml");
+
     }
 }
