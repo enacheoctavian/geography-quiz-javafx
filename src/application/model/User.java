@@ -7,6 +7,10 @@ public class User {
     private String userId;
     private int bestScore;
 
+    public User(String username) {
+        this.username = username;
+    }
+
     public int getBestScore() {
         return bestScore;
     }

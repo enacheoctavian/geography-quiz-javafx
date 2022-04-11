@@ -15,6 +15,9 @@ import java.sql.*;
 
 public class Utility {
 
+    public static String name;
+    public static String bestScore;
+
 
     public static void switchMyScene(ActionEvent event, String fxmlFile) throws IOException {
         Stage stage;
@@ -50,6 +53,7 @@ public class Utility {
                 psInsert.setString(2, password);
                 psInsert.executeUpdate();
                 System.out.println("Sign-Up completed");
+                name = username;
                 switchMyScene(event, "logged-in-page.fxml");
             }
         } catch (SQLException | IOException e) {
@@ -103,6 +107,7 @@ public class Utility {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(password)) {
+                        name=username;
                         switchMyScene(event, "logged-in-page.fxml");
                     } else {
                         System.out.println("Passwords did not match!");
