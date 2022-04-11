@@ -142,14 +142,5 @@ public class Utility {
 
     }
 
-    public static void test(ActionEvent event) throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
-        preparedStatement = connection.prepareStatement("SELECT * FROM users");
-        resultSet = preparedStatement.executeQuery();
-        System.out.println(resultSet);
-    }
 
 }
