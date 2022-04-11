@@ -36,7 +36,7 @@ public class Utility {
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE userName = ?");
             psCheckUserExists.setString(1, username);
             resultSet = psCheckUserExists.executeQuery();
             if (resultSet.isBeforeFirst()) {
@@ -45,10 +45,11 @@ public class Utility {
                 alert.setContentText("You cannot use this username.");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO users (username , password VALUES(?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO users (userName , password) VALUES(?, ?)");
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
                 psInsert.executeUpdate();
+                System.out.println("Sign-Up completed");
                 switchMyScene(event, "region-selector.fxml");
             }
         } catch (SQLException | IOException e) {
