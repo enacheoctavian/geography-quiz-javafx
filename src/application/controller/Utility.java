@@ -50,7 +50,7 @@ public class Utility {
                 psInsert.setString(2, password);
                 psInsert.executeUpdate();
                 System.out.println("Sign-Up completed");
-                switchMyScene(event, "region-selector.fxml");
+                switchMyScene(event, "logged-in-page.fxml");
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
@@ -103,7 +103,7 @@ public class Utility {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(password)) {
-                        switchMyScene(event, "region-selector.fxml");
+                        switchMyScene(event, "logged-in-page.fxml");
                     } else {
                         System.out.println("Passwords did not match!");
                         warningText.setText("Wrong credentials!");

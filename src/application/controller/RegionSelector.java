@@ -7,7 +7,8 @@ import java.io.IOException;
 public class RegionSelector {
 
     public void onPressBack(ActionEvent event) throws IOException {
-        Utility.switchMyScene(event,"login-page.fxml");
+        Utility.switchMyScene(event,"logged-in-page.fxml");
 
     }
+
 }
