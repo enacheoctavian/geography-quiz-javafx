@@ -162,7 +162,7 @@ public class Utility {
         ResultSet resultSet;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
-            preparedStatement = connection.prepareStatement("SELECT userName,bestScore FROM users ORDER BY bestScore;");
+            preparedStatement = connection.prepareStatement("SELECT userName,bestScore FROM users ORDER BY bestScore DESC;");
             resultSet = preparedStatement.executeQuery();
             int i = 0;
             while (resultSet.next()) {
@@ -213,6 +213,21 @@ public class Utility {
             System.out.println("Successfully added to database!");
             switchMyScene(event,"add-question.fxml");
         } catch (SQLException | IOException e) {
+            System.out.println("Fail");
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateBest(String username, int NewBest){
+        Connection connection;
+        PreparedStatement preparedStatement;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
+            preparedStatement = connection.prepareStatement("UPDATE users SET bestScore=? WHERE userName = ?");
+            preparedStatement.setInt(1,NewBest);
+            preparedStatement.setString(2, username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
             System.out.println("Fail");
             e.printStackTrace();
         }
