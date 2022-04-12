@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoggedIn">
    <children>
       <Button layoutX="80.0" layoutY="174.0" mnemonicParsing="false" onAction="#onStartTheGame" text="START THE GAME" textFill="#00296b">
@@ -24,5 +23,6 @@
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#onPressBack" text="Back" />
+      <Button fx:id="adminButton" layoutX="295.0" layoutY="461.0" mnemonicParsing="false" onAction="#onAddQuestionButton" text="Add question" />
    </children>
 </AnchorPane>

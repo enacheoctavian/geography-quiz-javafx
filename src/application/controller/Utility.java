@@ -1,14 +1,13 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.Question;
 
 import java.io.IOException;
 import java.sql.*;
@@ -19,12 +18,12 @@ public class Utility {
 
     public static String name;
     public static String bestScore;
-    public static String top1="";
-    public static String top2="";
-    public static String top3="";
-    public static int scor1=1;
-    public static int scor2=1;
-    public static int scor3=1;
+    public static String top1 = "";
+    public static String top2 = "";
+    public static String top3 = "";
+    public static int scor1 = 1;
+    public static int scor2 = 1;
+    public static int scor3 = 1;
 
 
     public static void switchMyScene(ActionEvent event, String fxmlFile) throws IOException {
@@ -158,34 +157,34 @@ public class Utility {
 
 
     public static void getTop(ActionEvent event) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
             preparedStatement = connection.prepareStatement("SELECT userName,bestScore FROM users ORDER BY bestScore;");
             resultSet = preparedStatement.executeQuery();
             int i = 0;
             while (resultSet.next()) {
-                    i++;
-                    String retrievedName = resultSet.getString("userName");
-                    int retrievedScore = resultSet.getInt("bestScore");
-                    if (i == 1) {
-                        scor1 = retrievedScore;
-                        top1 = retrievedName;
+                i++;
+                String retrievedName = resultSet.getString("userName");
+                int retrievedScore = resultSet.getInt("bestScore");
+                if (i == 1) {
+                    scor1 = retrievedScore;
+                    top1 = retrievedName;
 
-                    } else if (i == 2) {
-                        scor2 = retrievedScore;
-                        top2 = retrievedName;
+                } else if (i == 2) {
+                    scor2 = retrievedScore;
+                    top2 = retrievedName;
 
-                    } else {
-                        scor3 = retrievedScore;
-                        top3 = retrievedName;
+                } else {
+                    scor3 = retrievedScore;
+                    top3 = retrievedName;
 
-                    }
+                }
 
-                    if(i==3)
-                        break;
+                if (i == 3)
+                    break;
 
             }
 
@@ -196,4 +195,26 @@ public class Utility {
         }
     }
 
+    public static void addQuestionToDB(ActionEvent event, Question question) {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
+            preparedStatement = connection.prepareStatement("INSERT INTO questions (q,a1,a2,a3,a4,c,r,d) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, question.getQuestion());
+            preparedStatement.setString(2, question.getAns1());
+            preparedStatement.setString(3, question.getAns2());
+            preparedStatement.setString(4, question.getAns3());
+            preparedStatement.setString(5, question.getAns4());
+            preparedStatement.setInt(6,question.getCorrectAns());
+            preparedStatement.setInt(7,question.getRegion());
+            preparedStatement.setInt(8,question.getDif());
+            preparedStatement.executeUpdate();
+            System.out.println("Successfully added to database!");
+            switchMyScene(event,"add-question.fxml");
+        } catch (SQLException | IOException e) {
+            System.out.println("Fail");
+            e.printStackTrace();
+        }
+    }
 }
