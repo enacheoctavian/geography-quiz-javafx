@@ -27,5 +27,6 @@
             <Font name="Franklin Gothic Demi Cond" size="36.0" />
          </font>
       </Label>
+      <Button layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#onPressBack" text="Back" />
    </children>
 </AnchorPane>

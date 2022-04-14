@@ -17,7 +17,7 @@ public class Loginpage {
     @FXML
     private PasswordField passwordField;
 
-    public void loginButtonOnAction(ActionEvent e) throws SQLException {
+    public void loginButtonOnAction(ActionEvent e) {
         Utility.logInUser(e,usernameTextField.getText(),passwordField.getText(),loginErrorMessage);
     }
 

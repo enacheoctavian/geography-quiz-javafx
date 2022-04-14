@@ -27,3 +27,13 @@
 -fx-background-radius: 15px;
 -fx-background-color: RGBA(0,86,209,0.6);
 }
+
+.button:hover{
+    -fx-background-color: #ffee70;
+
+    -fx-shadow-highlight-color: #e85d04;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 15px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+
+}

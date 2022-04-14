@@ -26,7 +26,7 @@ public class LoggedIn implements Initializable {
 
     }
 
-    public void onPressTopScores(ActionEvent event) throws IOException {
+    public void onPressTopScores(ActionEvent event) {
         Utility.getTop(event);
 
     }

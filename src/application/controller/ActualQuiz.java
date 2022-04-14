@@ -26,15 +26,18 @@ public class ActualQuiz implements Initializable {
     @FXML
     private ProgressBar progressBar;
 
+    double progress;
+
     public static Question quiz = new Question();
 
     public void onBtn1(ActionEvent event) throws IOException {
+        progressBarIncrease();
         if (Utility.correct == 1)
             Utility.score = Utility.score + 10;
         if (Utility.n == 10)
             Utility.getScore(event);
         else {
-            Utility.nextQuestion(event);
+            Utility.nextQuestion();
             question.setText(quiz.getQuestion());
             btn1.setText(quiz.getAns1());
             btn2.setText(quiz.getAns2());
@@ -44,12 +47,13 @@ public class ActualQuiz implements Initializable {
     }
 
     public void onBtn2(ActionEvent event) throws IOException {
+        progressBarIncrease();
         if (Utility.correct == 2)
             Utility.score = Utility.score + 10;
         if (Utility.n == 10)
             Utility.getScore(event);
         else {
-            Utility.nextQuestion(event);
+            Utility.nextQuestion();
             question.setText(quiz.getQuestion());
             btn1.setText(quiz.getAns1());
             btn2.setText(quiz.getAns2());
@@ -59,13 +63,14 @@ public class ActualQuiz implements Initializable {
     }
 
     public void onBtn3(ActionEvent event) throws IOException {
+        progressBarIncrease();
         if (Utility.correct == 3)
             Utility.score = Utility.score + 10;
         if (Utility.n == 10)
             Utility.getScore(event);
         else {
 
-            Utility.nextQuestion(event);
+            Utility.nextQuestion();
             question.setText(quiz.getQuestion());
             btn1.setText(quiz.getAns1());
             btn2.setText(quiz.getAns2());
@@ -75,12 +80,13 @@ public class ActualQuiz implements Initializable {
     }
 
     public void onBtn4(ActionEvent event) throws IOException {
+        progressBarIncrease();
         if (Utility.correct == 4)
             Utility.score = Utility.score + 10;
         if (Utility.n == 10)
             Utility.getScore(event);
         else {
-            Utility.nextQuestion(event);
+            Utility.nextQuestion();
             question.setText(quiz.getQuestion());
             btn1.setText(quiz.getAns1());
             btn2.setText(quiz.getAns2());
@@ -91,11 +97,18 @@ public class ActualQuiz implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        progressBar.setStyle("-fx-accent: #7400b8");
+
         question.setText(quiz.getQuestion());
         btn1.setText(quiz.getAns1());
         btn2.setText(quiz.getAns2());
         btn3.setText(quiz.getAns3());
         btn4.setText(quiz.getAns4());
 
+    }
+
+    public void progressBarIncrease(){
+        progress += 0.1;
+        progressBar.setProgress(progress);
     }
 }

@@ -13,7 +13,7 @@ public class Difficulty {
     public void onPressEasy(ActionEvent event) throws IOException {
         Utility.dif = 1;
         Utility.getQuestionIds();
-        Utility.nextQuestion(event);
+        Utility.nextQuestion();
         Utility.switchMyScene(event, "quiz-face.fxml");
 
     }
@@ -21,7 +21,7 @@ public class Difficulty {
     public void onPressMedium(ActionEvent event) throws IOException {
         Utility.dif = 2;
         Utility.getQuestionIds();
-        Utility.nextQuestion(event);
+        Utility.nextQuestion();
         Utility.switchMyScene(event, "quiz-face.fxml");
 
     }
@@ -29,7 +29,7 @@ public class Difficulty {
     public void onPressHard(ActionEvent event) throws IOException {
         Utility.dif = 3;
         Utility.getQuestionIds();
-        Utility.nextQuestion(event);
+        Utility.nextQuestion();
         Utility.switchMyScene(event, "quiz-face.fxml");
     }
 

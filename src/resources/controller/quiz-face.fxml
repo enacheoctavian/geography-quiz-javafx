@@ -45,6 +45,6 @@
             <Image url="@../images/image.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="progressBar" layoutX="300.0" layoutY="408.0" prefWidth="200.0" progress="0.1" />
+      <ProgressBar fx:id="progressBar" layoutX="300.0" layoutY="408.0" prefWidth="200.0" progress="0.0" />
    </children>
 </AnchorPane>

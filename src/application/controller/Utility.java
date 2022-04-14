@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Question;
@@ -203,6 +204,43 @@ public class Utility {
         }
     }
 
+    public static void getTop2() {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
+            preparedStatement = connection.prepareStatement("SELECT userName,bestScore FROM users ORDER BY bestScore DESC;");
+            resultSet = preparedStatement.executeQuery();
+            int i = 0;
+            while (resultSet.next()) {
+                i++;
+                String retrievedName = resultSet.getString("userName");
+                int retrievedScore = resultSet.getInt("bestScore");
+                if (i == 1) {
+                    scor1 = retrievedScore;
+                    top1 = retrievedName;
+
+                } else if (i == 2) {
+                    scor2 = retrievedScore;
+                    top2 = retrievedName;
+
+                } else {
+                    scor3 = retrievedScore;
+                    top3 = retrievedName;
+
+                }
+
+                if (i == 3)
+                    break;
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void addQuestionToDB(ActionEvent event, Question question) {
         Connection connection;
         PreparedStatement preparedStatement;
@@ -254,7 +292,7 @@ public class Utility {
         i = -1;
     }
 
-    public static void nextQuestion(ActionEvent event) {
+    public static void nextQuestion() {
         Connection connection;
         PreparedStatement preparedStatement;
         ResultSet resultSet;
@@ -265,7 +303,6 @@ public class Utility {
             preparedStatement = connection.prepareStatement("SELECT * FROM questions WHERE idquestions = ?");
             preparedStatement.setInt(1, ints[i]);
             resultSet = preparedStatement.executeQuery();
-            System.out.println(score);
             while (resultSet.next()) {
                 ActualQuiz.quiz.setQuestion(resultSet.getString("q"));
                 ActualQuiz.quiz.setAns1(resultSet.getString("a1"));
@@ -273,7 +310,6 @@ public class Utility {
                 ActualQuiz.quiz.setAns3(resultSet.getString("a3"));
                 ActualQuiz.quiz.setAns4(resultSet.getString("a4"));
                 correct = resultSet.getInt("c");
-
             }
 
         } catch (SQLException e) {
@@ -290,7 +326,25 @@ public class Utility {
             updateBest(name,score);
         }
 
+
         switchMyScene(event,"final.fxml");
+    }
+
+    public static boolean isNewRecord(){
+        getTop2();
+        return score > scor1;
+    }
+
+    public static void wait(int ms)
+    {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 
 }
