@@ -5,20 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Difficulty">
    <children>
-      <Button layoutX="145.0" layoutY="104.0" mnemonicParsing="false" text="EASY" textFill="#00296b">
+      <Button layoutX="145.0" layoutY="104.0" mnemonicParsing="false" onAction="#onPressEasy" text="EASY" textFill="#00296b">
          <font>
             <Font name="Onyx" size="43.0" />
          </font>
       </Button>
-      <Button layoutX="129.0" layoutY="212.0" mnemonicParsing="false" text="MEDIUM" textFill="#00296b">
+      <Button layoutX="129.0" layoutY="212.0" mnemonicParsing="false" onAction="#onPressMedium" text="MEDIUM" textFill="#00296b">
          <font>
             <Font name="Onyx" size="43.0" />
          </font>
       </Button>
-      <Button layoutX="142.0" layoutY="320.0" mnemonicParsing="false" text="HARD" textFill="#00296b">
+      <Button layoutX="142.0" layoutY="320.0" mnemonicParsing="false" onAction="#onPressHard" text="HARD" textFill="#00296b">
          <font>
             <Font name="Onyx" size="43.0" />
          </font>

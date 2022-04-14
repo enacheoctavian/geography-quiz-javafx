@@ -11,26 +11,34 @@ import model.Question;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Random;
 
+import static java.util.Arrays.sort;
 import static javafx.fxml.FXMLLoader.load;
 
 public class Utility {
 
     public static String name;
-    public static String bestScore;
+    public static int bestScore;
     public static String top1 = "";
     public static String top2 = "";
     public static String top3 = "";
     public static int scor1 = 1;
     public static int scor2 = 1;
     public static int scor3 = 1;
+    public static int reg = 1;
+    public static int dif = 1;
+    public static int correct;
+    public static int score = 0;
+    public static int[] ints;
+    public static int i = -1;
+    public static int n=0;
 
 
     public static void switchMyScene(ActionEvent event, String fxmlFile) throws IOException {
         Stage stage;
         Scene scene;
-        Parent root;
-        root = load(Utility.class.getResource(fxmlFile));
+        Parent root = load(Utility.class.getResource(fxmlFile));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -206,25 +214,25 @@ public class Utility {
             preparedStatement.setString(3, question.getAns2());
             preparedStatement.setString(4, question.getAns3());
             preparedStatement.setString(5, question.getAns4());
-            preparedStatement.setInt(6,question.getCorrectAns());
-            preparedStatement.setInt(7,question.getRegion());
-            preparedStatement.setInt(8,question.getDif());
+            preparedStatement.setInt(6, question.getCorrectAns());
+            preparedStatement.setInt(7, question.getRegion());
+            preparedStatement.setInt(8, question.getDif());
             preparedStatement.executeUpdate();
             System.out.println("Successfully added to database!");
-            switchMyScene(event,"add-question.fxml");
+            switchMyScene(event, "add-question.fxml");
         } catch (SQLException | IOException e) {
             System.out.println("Fail");
             e.printStackTrace();
         }
     }
 
-    public static void updateBest(String username, int NewBest){
+    public static void updateBest(String username, int NewBest) {
         Connection connection;
         PreparedStatement preparedStatement;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
             preparedStatement = connection.prepareStatement("UPDATE users SET bestScore=? WHERE userName = ?");
-            preparedStatement.setInt(1,NewBest);
+            preparedStatement.setInt(1, NewBest);
             preparedStatement.setString(2, username);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -232,4 +240,57 @@ public class Utility {
             e.printStackTrace();
         }
     }
+
+    public static void getQuestionIds() {
+        if (dif == 1 & reg == 1)
+            ints = new Random().ints(1, 41).distinct().limit(10).toArray();
+        else if (dif == 2 & reg == 1)
+            ints = new Random().ints(41, 51).distinct().limit(10).toArray();
+        else if (dif == 3 && reg == 1)
+            ints = new Random().ints(51, 62).distinct().limit(10).toArray();
+        else
+            ints = new Random().ints(1, 62).distinct().limit(10).toArray();
+        sort(ints);
+        i = -1;
+    }
+
+    public static void nextQuestion(ActionEvent event) {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        i++;
+        n++;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-geography", "root", "tavi");
+            preparedStatement = connection.prepareStatement("SELECT * FROM questions WHERE idquestions = ?");
+            preparedStatement.setInt(1, ints[i]);
+            resultSet = preparedStatement.executeQuery();
+            System.out.println(score);
+            while (resultSet.next()) {
+                ActualQuiz.quiz.setQuestion(resultSet.getString("q"));
+                ActualQuiz.quiz.setAns1(resultSet.getString("a1"));
+                ActualQuiz.quiz.setAns2(resultSet.getString("a2"));
+                ActualQuiz.quiz.setAns3(resultSet.getString("a3"));
+                ActualQuiz.quiz.setAns4(resultSet.getString("a4"));
+                correct = resultSet.getInt("c");
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Fail");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void getScore(ActionEvent event) throws IOException {
+        n=0;
+        if(score > bestScore)
+        {
+            updateBest(name,score);
+        }
+
+        switchMyScene(event,"final.fxml");
+    }
+
 }

@@ -11,4 +11,13 @@ public class RegionSelector {
 
     }
 
+    public void onPressEurope(ActionEvent event) throws IOException {
+        Utility.reg=1;
+        Utility.switchMyScene(event,"difficulty-selector.fxml");
+    }
+    public void onPressGlobal(ActionEvent event) throws IOException {
+        Utility.reg=2;
+        Utility.switchMyScene(event,"difficulty-selector.fxml");
+    }
+
 }

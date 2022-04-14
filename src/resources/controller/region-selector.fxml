@@ -7,12 +7,12 @@
 
 <AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegionSelector">
    <children>
-      <Button layoutX="129.0" layoutY="185.0" mnemonicParsing="false" text="EUROPE" textFill="#00296b">
+      <Button layoutX="129.0" layoutY="185.0" mnemonicParsing="false" onAction="#onPressEurope" text="EUROPE" textFill="#00296b">
          <font>
             <Font name="Onyx" size="43.0" />
          </font>
       </Button>
-      <Button layoutX="131.0" layoutY="287.0" mnemonicParsing="false" text="GLOBAL" textFill="#00296b">
+      <Button layoutX="131.0" layoutY="287.0" mnemonicParsing="false" onAction="#onPressGlobal" text="GLOBAL" textFill="#00296b">
          <font>
             <Font name="Onyx" size="43.0" />
          </font>

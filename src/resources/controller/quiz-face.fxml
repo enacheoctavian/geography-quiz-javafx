@@ -2,14 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #00296b; -fx-border-width: 2px; -fx-border-color: #edc531;" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #00296b; -fx-border-width: 2px; -fx-border-color: #edc531;" stylesheets="@../styles/welcome-page.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ActualQuiz">
    <children>
       <Text id="mainText" fx:id="mainTitle" fill="#edc531db" layoutX="221.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="button" text="GEOGRAPHY QUIZ" wrappingWidth="357.9921875">
          <font>
@@ -26,15 +26,15 @@
             <Image url="@../images/padure.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="71.0" layoutY="99.0" prefHeight="76.0" prefWidth="658.0" text="Name the capital of Romania:" textAlignment="CENTER" textFill="#edc531">
+      <Label fx:id="question" alignment="CENTER" layoutX="3.0" layoutY="99.0" prefHeight="76.0" prefWidth="794.0" text="Name the capital of Romania:" textAlignment="CENTER" textFill="#edc531">
          <font>
             <Font name="Impact" size="26.0" />
          </font>
       </Label>
-      <Button id="quizButton" layoutX="76.0" layoutY="189.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
-      <Button id="quizButton" layoutX="76.0" layoutY="257.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
-      <Button id="quizButton" layoutX="433.0" layoutY="257.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
-      <Button id="quizButton" layoutX="433.0" layoutY="189.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" fx:id="btn1" layoutX="76.0" layoutY="189.0" mnemonicParsing="false" onAction="#onBtn1" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" fx:id="btn3" layoutX="76.0" layoutY="257.0" mnemonicParsing="false" onAction="#onBtn3" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" fx:id="btn4" layoutX="433.0" layoutY="257.0" mnemonicParsing="false" onAction="#onBtn4" prefHeight="45.0" prefWidth="291.0" text="Button" />
+      <Button id="quizButton" fx:id="btn2" layoutX="433.0" layoutY="189.0" mnemonicParsing="false" onAction="#onBtn2" prefHeight="45.0" prefWidth="291.0" text="Button" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="649.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/aripa.png" />
@@ -45,5 +45,6 @@
             <Image url="@../images/image.png" />
          </image>
       </ImageView>
+      <ProgressBar fx:id="progressBar" layoutX="300.0" layoutY="408.0" prefWidth="200.0" progress="0.1" />
    </children>
 </AnchorPane>
