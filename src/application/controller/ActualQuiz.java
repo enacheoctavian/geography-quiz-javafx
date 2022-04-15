@@ -32,8 +32,9 @@ public class ActualQuiz implements Initializable {
 
     public void onBtn1(ActionEvent event) throws IOException {
         progressBarIncrease();
-        if (Utility.correct == 1)
+        if (Utility.correct == 1) {
             Utility.score = Utility.score + 10;
+        }
         if (Utility.n == 10)
             Utility.getScore(event);
         else {

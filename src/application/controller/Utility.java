@@ -323,6 +323,7 @@ public class Utility {
         n=0;
         if(score > bestScore)
         {
+            bestScore=score;
             updateBest(name,score);
         }
 

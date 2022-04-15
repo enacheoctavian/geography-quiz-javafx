@@ -5,7 +5,7 @@
 
 }
 #anchor{
-    -fx-background-image: url(https://geography.as.miami.edu/_assets/images/demo/s_earth_1250x507.jpg);
+    -fx-background-image: url(../images/background.jpg);
     -fx-border-color: #edc531;
      -fx-border-width: 20px 5px 5px 5px;
 
